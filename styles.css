@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: gruppo, sans-serif;
+}
+
+.game {
+  background: url(photo.jpg) no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+#game-over {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  /*top: 200px;*/
+  width: 250px;
+  height: 300px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#you-won {
+  width: 160px;
+}
+
+#you-lose {
+  width: 160px;
+}
+
+#restart {
+  color: #000;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1.5;
+  border: 1px solid #6198d8;
+  border-radius: 4px;
+  text-align: center;
+  transition: 0.1s ease-in-out;
+}
+
+#restart:hover {
+  background-color: #6198d8;
+}
+
+.sound-container {
+  position: absolute;
+  top: 50%;
+  right: 15%;
+}
+
+.sound-container img {
+  width: 40px;
+  height: auto;
+  transition: 0.1s ease-in-out;
+}
+
+#sound:hover {
+  box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+}
+
+canvas {
+  background: #29125d;
+  display: block;
+  border-radius: 4px;
+}
+.game .typewriter {
+  font-weight: 300;
+  font-size: clamp(1rem, 1rem + 5vw, 2rem);
+}
+
+.game .typewriter span {
+  color: #433488;
+  font-size: 1.5rem;
+  text-shadow: 0 0 5px #fff;
+  position: relative;
+  transition: 0.3s linear;
+}
+
+.typewriter span::before {
+  content: "Règle de jeux";
+  animation: words 15s infinite;
+}
+
+.typewriter span::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid #fff;
+  animation: cursor 0.6s linear infinite;
+}
+
+@keyframes cursor {
+  to {
+    border-left: 3px solid #000;
+  }
+}
+
+@keyframes words {
+  0%,
+  33% {
+    content: "Règles de jeux";
+  }
+
+  34%,
+  66% {
+    content: "Pause";
+  }
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  padding: 5px 5px;
+  color: #6198d8;
+  border-radius: 4px;
+  font-family: gruppo, sans-serif;
+  transition: background-color 0.1s ease-in;
+}
+
+.btn:hover {
+  background-color: #376599;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.rules-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.rules {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  background-color: #6198d8;
+  color: #fff;
+  width: 400px;
+  padding: 20px;
+  line-height: 1.5;
+  border-radius: 4px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+.rules.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.rules p {
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
